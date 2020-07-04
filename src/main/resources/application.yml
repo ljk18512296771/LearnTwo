@@ -1,0 +1,28 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jtdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+
+mybatis-plus:
+  #定义别名包,写了这个就可以在mapper.xml中直接写类名了
+  type-aliases-package: com.jt.pojo
+  #添加映射文件
+  mapper-locations: classpath:/templates/mappers/*.xml
+  #开启驼峰映射,设置了这个就可以把user_id自动变为userId
+  configuration:
+    map-underscore-to-camel-case: true
+
+#添加日志
+logging:
+  level:
+    com.jt.mapper: debug
+    #mybatis指定mapper接口,以debug形式展示日志
+    
+  
+  
